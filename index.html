@@ -111,8 +111,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+@media (max-width: 480px) {
+  .carousel img {
+    height: 360px;
+  }
+}
 .carousel img {
   flex: 0 0 85%;
+  max-width: 85%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   scroll-snap-align: center;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -142,8 +150,8 @@
   <h2>Thank you for being my favourite person.</h2>
 
   <!-- 📸 PHOTO SECTION -->
+  <h2>Our Favourite Memories. Do you remember them ml? 📸</h2>
   <div class="photo-section">
-    <h2>Our Favourite Memories. Do you remember them ml? 📸</h2>
     <div class="carousel">
       <p style="margin-top:15px;">
   Every photo holds a moment I never want to forget.
