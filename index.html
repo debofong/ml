@@ -38,7 +38,9 @@
 <body>
 
 <h1>Happy Valentine’s Day ❤️</h1>
-<p>This page has a soundtrack. Tap when you’re ready 💕</p>
+<h2>Thank you for being my favourite person.</h2>
+
+<p>This is my favourite song that always reminds me of us. Tap when you’re ready 💕</p>
 
 <div class="player-wrapper">
   <div class="overlay" onclick="playMusic()">
@@ -46,7 +48,7 @@
   </div>
 
   <iframe id="player"
-    src="https://www.youtube.com/watch?v=vArw6zuJ4Yc"
+    src="https://www.youtube.com/embed/vArw6zuJ4Yc?playsinline=1&autoplay=1&mute=1"
     allow="autoplay; encrypted-media"
     allowfullscreen>
   </iframe>
@@ -56,7 +58,7 @@
 function playMusic() {
   const iframe = document.getElementById("player");
   iframe.src =
-    "https://www.youtube.com/watch?v=vArw6zuJ4Yc";
+    "https://www.youtube.com/embed/vArw6zuJ4Yc?playsinline=1&autoplay=1";
   document.querySelector(".overlay").style.display = "none";
 }
 </script>
