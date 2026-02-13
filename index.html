@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For ml ❤️</title>
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -10,16 +11,80 @@
       text-align: center;
       padding: 30px;
     }
+
+    /* PASSWORD SCREEN */
+    #lockScreen {
+      position: fixed;
+      inset: 0;
+      background: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 12px;
+      width: 220px;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 12px;
+      background: #ff6f91;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* HIDDEN CONTENT */
+    #content {
+      display: none;
+    }
+
+    /* PHOTO SECTION */
+    .photo-section {
+      margin-top: 40px;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 480px) {
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* PLAYER */
     .player-wrapper {
       position: relative;
       max-width: 360px;
       margin: 30px auto;
     }
+
     iframe {
       width: 100%;
       height: 200px;
       border-radius: 14px;
     }
+
     .overlay {
       position: absolute;
       inset: 0;
@@ -32,39 +97,113 @@
       border-radius: 14px;
       cursor: pointer;
     }
+    /* PHOTO CAROUSEL */
+.photo-section {
+  margin-top: 40px;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel img {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
   </style>
 </head>
 
 <body>
 
-<h1>Happy Valentine’s Day ❤️</h1>
-<h2>Thank you for being my favourite person.</h2>
+<!-- 🔐 LOCK SCREEN -->
+<div id="lockScreen">
+  <h2>💌 This page is just for you (I damn cool right)</h2>
+  <p>Enter the password ❤️</p>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="unlock()">Unlock</button>
+  <p id="error" style="color:#ff4d6d;"></p>
+</div>
 
-<p>This is my favourite song that always reminds me of us. Tap when you’re ready 💕</p>
+<!-- 💖 PROTECTED CONTENT -->
+<div id="content">
 
-<div class="player-wrapper">
-  <div class="overlay" onclick="playMusic()">
-    ▶ Tap to play our playlist
+  <h1>Happy Valentine’s Day ❤️</h1>
+  <h2>Thank you for being my favourite person.</h2>
+
+  <!-- 📸 PHOTO SECTION -->
+  <div class="photo-section">
+    <h2>Our Favourite Memories. Do you remember them ml? 📸</h2>
+    <div class="carousel">
+      <p style="margin-top:15px;">
+  Every photo holds a moment I never want to forget.
+</p>
+      <img src="photo1.JPG" alt="Memory 1">
+      <img src="photo2.JPG" alt="Memory 2">
+      <img src="photo3.JPG" alt="Memory 3">
+      <img src="photo4.JPG" alt="Memory 4">
+      <img src="photo5.JPG" alt="Memory 5">
+      <img src="photo6.JPG" alt="Memory 6">
+      <img src="photo7.JPG" alt="Memory 7">
+      <img src="photo8.JPG" alt="Memory 8">
+      <img src="photo9.JPG" alt="Memory 9">
+      <img src="photo10.JPG" alt="Memory 10">
+      <img src="photo11.JPG" alt="Memory 11">
+      <img src="photo12.JPG" alt="Memory 12">
+      <img src="photo13.JPG" alt="Memory 13">
+      <img src="photo14.JPG" alt="Memory 14">
+    </div>
+    <p style="font-size:14px; opacity:0.7;">Swipe to see more →</p>
   </div>
 
-  <iframe id="player"
-    src="https://www.youtube.com/embed/vArw6zuJ4Yc?playsinline=1&autoplay=1&mute=1"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
+  <p style="margin-top:40px;">This is my favourite song that always reminds me of us.</p>
+
+  <div class="player-wrapper">
+    <div class="overlay" onclick="playMusic()">▶ Tap to play the song</div>
+
+    <iframe id="player"
+      src="https://www.youtube.com/embed/vArw6zuJ4Yc?playsinline=1&autoplay=1&mute=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p>Everything reminds me of you.</p>
+  <p>I love you always ml.</p>
+
 </div>
 
 <script>
-function playMusic() {
-  const iframe = document.getElementById("player");
-  iframe.src =
-    "https://www.youtube.com/embed/vArw6zuJ4Yc?playsinline=1&autoplay=1";
-  document.querySelector(".overlay").style.display = "none";
-}
-</script>
+  const correctPassword = "tutter";
 
-<p>Everything reminds me of you.</p>
-<p>I love you always ml.</p>
+  function unlock() {
+    const input = document.getElementById("passwordInput").value;
+    if (input === correctPassword) {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.getElementById("error").innerText = "Wrong password 💔 Try again";
+    }
+  }
+
+  function playMusic() {
+    const iframe = document.getElementById("player");
+    iframe.src =
+      "https://www.youtube.com/embed/vArw6zuJ4Yc?playsinline=1&autoplay=1";
+    document.querySelector(".overlay").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
+
