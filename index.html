@@ -5,6 +5,9 @@
   <title>For ml ❤️</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: #fff0f5;
@@ -48,30 +51,6 @@
       display: none;
     }
 
-    /* PHOTO SECTION */
-    .photo-section {
-      margin-top: 40px;
-    }
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .photo-gallery img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 480px) {
-      .photo-gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-
     /* PLAYER */
     .player-wrapper {
       position: relative;
@@ -79,7 +58,7 @@
       margin: 30px auto;
     }
 
-    iframe {
+    .player-wrapper iframe {
       width: 100%;
       height: 200px;
       border-radius: 14px;
@@ -110,7 +89,18 @@
   padding: 20px 0;
   -webkit-overflow-scrolling: touch;
 }
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  .carousel {
+    justify-content: center;
+  }
 
+  .carousel img {
+    flex: 0 0 420px;   /* fixed width on desktop */
+    max-width: 420px;
+  }
+}
+    
 @media (max-width: 480px) {
   .carousel img {
     height: 360px;
