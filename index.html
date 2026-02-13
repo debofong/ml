@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For ml ❤️</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 30px;
+    }
+    .player-wrapper {
+      position: relative;
+      max-width: 360px;
+      margin: 30px auto;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 14px;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Happy Valentine’s Day ❤️</h1>
+<p>This page has a soundtrack. Tap when you’re ready 💕</p>
+
+<div class="player-wrapper">
+  <div class="overlay" onclick="playMusic()">
+    ▶ Tap to play our playlist
+  </div>
+
+  <iframe id="player"
+    src="https://www.youtube.com/watch?v=vArw6zuJ4Yc"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+function playMusic() {
+  const iframe = document.getElementById("player");
+  iframe.src =
+    "https://www.youtube.com/watch?v=vArw6zuJ4Yc";
+  document.querySelector(".overlay").style.display = "none";
+}
+</script>
+
+<p>Everything reminds me of you.</p>
+<p>I love you always ml.</p>
+
+</body>
+</html>
