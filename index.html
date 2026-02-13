@@ -76,49 +76,52 @@
       border-radius: 14px;
       cursor: pointer;
     }
-    /* PHOTO CAROUSEL */
-.photo-section {
-  margin-top: 40px;
-}
+     /* 📸 PHOTO SECTION */
+    .photo-section {
+      margin-top: 40px;
+    }
 
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  padding: 20px 0;
-  -webkit-overflow-scrolling: touch;
-}
-/* Desktop adjustments */
-@media (min-width: 768px) {
-  .carousel {
-    justify-content: center;
-  }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding: 20px 0;
+      -webkit-overflow-scrolling: touch;
+    }
 
-  .carousel img {
-    flex: 0 0 420px;   /* fixed width on desktop */
-    max-width: 420px;
-  }
-}
-    
-@media (max-width: 480px) {
-  .carousel img {
-    height: 360px;
-  }
-}
-.carousel img {
-  flex: 0 0 85%;
-  max-width: 85%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  scroll-snap-align: center;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+    .carousel img {
+      flex: 0 0 85%;
+      max-width: 85%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      scroll-snap-align: center;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
 
-.carousel::-webkit-scrollbar {
-  display: none;
-}
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Mobile height adjustment */
+    @media (max-width: 480px) {
+      .carousel img {
+        height: 360px;
+      }
+    }
+
+    /* Desktop adjustments */
+    @media (min-width: 768px) {
+      .carousel {
+        justify-content: center;
+      }
+
+      .carousel img {
+        flex: 0 0 420px;
+        max-width: 420px;
+      }
+    }
   </style>
 </head>
 
